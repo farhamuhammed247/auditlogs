@@ -1,0 +1,162 @@
+<div class="container mt-4">
+  <!-- Header with Logo -->
+  <div class="d-flex align-items-center mb-2">
+    <h2 class="audit-logo">Audit Logs</h2>
+  </div>
+
+  <!-- Navbar under the logo -->
+  <nav class="navbar mb-4">
+    <div class="container-fluid d-flex justify-content-start gap-4">
+      <a class="nav-link" routerLink="/Auditlogs" routerLinkActive="active-link">Audit Logs</a>
+      <a class="nav-link" routerLink="/entitychanges" routerLinkActive="active-link">Entity Changes</a>
+    </div>
+  </nav>
+<br>
+
+  <!-- Filters -->
+  <div class="filters-row">
+    <!-- Start Date -->
+    <div class="filter-item">
+      <label for="startDate">Start Date</label>
+      <input type="date" id="startDate" class="form-control">
+    </div>
+
+    <!-- End Date -->
+    <div class="filter-item">
+      <label for="endDate">End Date</label>
+      <input type="date" id="endDate" class="form-control">
+    </div>
+
+    <!-- User -->
+    <div class="filter-item">
+      <label for="user">User Name</label>
+      <input type="text" id="user" class="form-control" placeholder="Enter user name">
+    </div>
+
+
+    <!-- URL -->
+    <div class="filter-item">
+      <label for="url">URL</label>
+      <input type="text" id="url" class="form-control" placeholder="Enter request URL">
+    </div>
+
+     <!-- Duration -->
+    <div class="filter-item">
+      <label>Duration (Min. - Max.)</label>
+      <div class="d-flex">
+        <input type="number" class="form-control me-1" >
+      </div>
+    </div>
+
+     <!-- HTTP Method -->
+    <div class="filter-item">
+      <label for="httpMethod">HTTP Method</label>
+      <select id="httpMethod" class="form-select">
+        <option value="">All</option>
+        <option>GET</option>
+        <option>POST</option>
+        <option>PUT</option>
+        <option>PATCH</option>
+        <option>DELETE</option>
+        <option>OPTIONS</option>
+        <option>HEAD</option>
+      </select>
+    </div>
+
+
+     <!-- HTTP Status -->
+    <div class="filter-item">
+      <label for="httpStatus">HTTP Status code</label>
+      <select id="httpStatus" class="form-select">
+        <option value="">All</option>
+        <option>200</option>
+        <option>201</option>
+        <option>400</option>
+        <option>401</option>
+        <option>403</option>
+        <option>404</option>
+        <option>500</option>
+      </select>
+    </div>
+
+    <!-- Application Name -->
+    <div class="filter-item">
+      <label for="applicationName">Application Name</label>
+      <input type="text" id="applicationName" class="form-control" placeholder="Enter app name">
+    </div>
+
+
+    <!-- Client IP Address -->
+    <div class="filter-item">
+      <label for="clientIp">Client IP Address</label>
+      <input type="text" id="clientIp" class="form-control" placeholder="Enter client IP">
+    </div>
+
+
+    <!-- Correlation Id -->
+    <div class="filter-item">
+      <label for="correlationId">Correlation Id</label>
+      <input type="text" id="correlationId" class="form-control" placeholder="Enter correlation ID">
+    </div>
+
+
+    <!-- Has Expectation -->
+    <div class="filter-item">
+      <label for="expectation">Has Expectation</label>
+      <select id="expectation" class="form-select">
+        <option value="">All</option>
+        <option value="yes">Yes</option>
+        <option value="no">No</option>
+      </select>
+    </div>
+
+    <!-- Refresh button -->
+    <div class="filter-item">
+      <label>&nbsp;</label>
+      <button class="btn btn-primary ">Refresh</button>
+    </div>
+  </div>
+
+<div class="table-responsive mt-4" style="max-height: 350px; overflow-y: auto;">
+  <table class="table align-middle table-striped" style="min-width: 900px;">
+    <thead class="table-light sticky-top">
+      <tr>
+        <th>Action</th>
+        <th>HTTP Request</th>
+        <th>User</th>
+        <th>IP Address</th>
+        <th>Date</th>
+        <th>Duration (ms)</th>
+        <th>Application Name</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let log of logs">
+        <td><button class="btn btn-primary btn-sm">{{ log.action }}</button></td>
+        <td>
+          <span class="badge" [ngClass]="log.status === 200 ? 'bg-success' : 'bg-danger'">
+            {{ log.status }}
+          </span>
+          <span class="badge bg-success me-1">{{ log.method }}</span>
+          <span>{{ log.endpoint }}</span>
+        </td>
+        <td>{{ log.user }}</td>
+        <td>{{ log.ip }}</td>
+        <td>{{ log.date }}</td>
+        <td>{{ log.duration }}</td>
+        <td>{{ log.application }}</td>
+      </tr>
+    </tbody>
+
+    <!-- ✅ Totals Row -->
+    <tfoot class="table-light">
+      <tr>
+        <td colspan="5"><strong>Total</strong></td>
+        <td><strong>{{ totalDuration }}</strong></td>
+        <td><strong>{{ totalRows }} rows</strong></td>
+      </tr>
+    </tfoot>
+  </table>
+</div>
+</div>
+
