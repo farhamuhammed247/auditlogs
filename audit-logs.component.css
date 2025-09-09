@@ -1,0 +1,98 @@
+/* Filters grid: 4 filters per row */
+.filters-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 filters in a row */
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Each filter item: vertical stack */
+.filters-row > div {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Label styling */
+.filters-row label {
+  font-weight: 600;
+  margin-bottom: 0.4rem; /* spacing between label & input */
+  text-align: left;     /* align labels to the left */
+}
+
+/* Inputs and selects */
+.filters-row .form-control,
+.filters-row .form-select {
+  border-radius: 8px;
+  width: 60%;
+  background-color: #f1f1f1;  /* light gray background */
+  border: 1px solid #ccc;     /* subtle border */
+  color: #333;                /* dark text */
+}
+/* On focus */
+.filters-row .form-control:focus,
+.filters-row .form-select:focus {
+  background-color: #e9ecef;  /* slightly darker gray on focus */
+  border-color: #0d6efd;      /* Bootstrap blue border */
+  box-shadow: 0 0 4px rgba(13, 110, 253, 0.25);
+}
+
+/* Navbar styling */
+.navbar {
+  background: transparent;
+  padding: 1rem 0;
+}
+
+/* Nav links */
+.navbar .nav-link {
+  font-weight: 600;
+  color: #333;
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+}
+
+/* Hover effect */
+.navbar .nav-link:hover {
+  color: #0d6efd; /* Bootstrap blue */
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+/* Active link */
+.active-link {
+  color: #0d6efd !important;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.table {
+  border-collapse: separate;
+  border-spacing: 0 8px; /* spacing between rows */
+}
+
+.table th {
+  font-weight: 600;
+  color: #6c757d;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  border-bottom: none;
+}
+
+.table td {
+  border: none; /* no hard borders */
+  vertical-align: middle;
+}
+
+.badge {
+  font-size: 0.75rem;
+  padding: 0.4em 0.6em;
+  border-radius: 12px;
+  margin-right: 0.5rem;
+}
+
+/* Refresh button same size as inputs */
+.filters-row button {
+  border-radius: 8px;
+  width: 58%;
+  background-color: #0d6efd; /* Bootstrap primary blue */
+  color: #fff;
+}
