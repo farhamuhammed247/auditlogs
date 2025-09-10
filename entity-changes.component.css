@@ -1,0 +1,65 @@
+
+.navbar {
+  background: transparent;
+  padding: 1rem 0;
+}
+
+
+.navbar .nav-link {
+  font-weight: 600;
+  color: #333;
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+}
+
+
+.navbar .nav-link:hover {
+  color: #0d6efd;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+
+.active-link {
+
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.btn-refresh {
+  padding: 10px 10px;
+  font-size: 14px;
+  width: auto;
+  max-width: 140px;
+}
+
+/* Make table fully borderless and clean */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border: none;
+  background: transparent;
+}
+
+table th,
+table td {
+  border: none !important;   /* remove all lines */
+  background: transparent !important;
+  padding: 8px 12px;
+  text-align: left;
+  font-size: 14px;
+  color: #333;
+}
+
+table tr:hover {
+  background: transparent !important;
+}
+.breadcrumb {
+  margin-top: -10px;
+  margin-left: 10px;
+  font-size: 0.9rem;
+}
+
+.breadcrumb-item i {
+  font-size: 1rem;
+}
